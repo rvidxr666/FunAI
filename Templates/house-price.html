@@ -1,0 +1,80 @@
+{% extends "main.html" %}
+
+{% block house_prices %}
+<a class="nav-link active" aria-current="page" href="http://localhost:5000/house-price">House-Prices</a>
+{% endblock %}
+
+{% block thinking %}
+<a class="nav-link" href="#">Thinking</a>
+{% endblock %}
+
+{% block celebrity %}
+<a class="nav-link" href="http://localhost:5000/celebrity">Identify the Celebrity</a>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row justify-content-center mt-2">
+        <div class="col-12 col-sm-6 col-md-3">
+           <h3 class="text-center py-2">Please Input the Data</h3>
+            <form class="form-container py-2" method="POST">
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <h6 class="pop-up text-center"> {{ messages[-1] }} </h6>
+                {% endif %}
+              {% endwith %}
+              <div class="mb-3">
+                <label for="bedrooms" class="form-label">How many bedrooms?</label>
+                <input type="number" class="form-control" id="bedrooms" name="bedrooms">
+              </div>
+              <div class="mb-3">
+                <label for="bathrooms" class="form-label">How many bathrooms?</label>
+                <input type="number" class="form-control" id="bathrooms" name="bathrooms">
+              </div>
+              <div class="mb-3">
+                <label for="stories" class="form-label">How many stories?</label>
+                <input type="number" class="form-control" id="stories" name="stories" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="mainroad" class="form-label">Is there a mainroad nearby? (Yes/No)</label>
+                <input type="text" class="form-control" id="mainroad" name="mainroad">
+              </div>
+              <div class="mb-3">
+                <label for="guestrooms" class="form-label">Is there a guestroom? (Yes/No)</label>
+                <input type="text" class="form-control" id="guestrooms" name="guestrooms" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="basement" class="form-label">Is there a basement? (Yes/No)</label>
+                <input type="text" class="form-control" id="basement" name="basement" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="waterheating" class="form-label">Is there a hot water heating? (Yes/No)</label>
+                <input type="text" class="form-control" id="waterheating" name="waterheating" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="airconditioning" class="form-label">Is there an aero conditioning? (Yes/No)</label>
+                <input type="text" class="form-control" id="airconditioning" name="airconditioning" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="parking" class="form-label">How many parking spots?</label>
+                <input type="number" class="form-control" id="parking" name="parking" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="pref-area" class="form-label">Is it in the preferred area? (Yes/No)</label>
+                <input type="text" class="form-control" id="pref-area" name="pref-area" aria-describedby="emailHelp">
+              </div>
+<!--                {% with messages = get_flashed_messages() %}-->
+<!--                    {% if messages %}-->
+<!--                        <h6 class="pop-up text-center"> {{ messages[-1] }} </h6>-->
+<!--                    {% endif %}-->
+<!--                {% endwith %}-->
+              <div class="d-grid gap-2">
+                <button class="btn btn-primary" type="submit">Submit</button>
+                <a href = "http://localhost:5000/" class="btn btn-secondary" type="button">Back</a>
+              </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "main.html" %}
+
+{% block house_prices %}
+<a class="nav-link" aria-current="page" href="http://localhost:5000/house-price">House-Prices</a>
+{% endblock %}
+
+{% block thinking %}
+<a class="nav-link" href="#">Thinking</a>
+{% endblock %}
+
+{% block celebrity %}
+<a class="nav-link active" href="http://localhost:5000/celebrity">Identify the Celebrity</a>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row justify-content-center mt-2">
+        <div class="col-12 col-sm-6 col-md-3">
+          <h3 class="text-center">Upload the Celebrity</h3>
+          <form enctype="multipart/form-data" class="form-container" method="POST">
+              <div class="mb-3">
+                <input type="file" accept="image/*" id="myFile" name="filename">
+              </div>
+              {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <h6 class="pop-up text-center"> {{ messages[-1] }} </h6>
+                {% endif %}
+              {% endwith %}
+              <div class="d-grid gap-2">
+                <button class="btn btn-primary" type="submit">Submit</button>
+                <a href = "http://localhost:5000/" class="btn btn-secondary" type="button">Back</a>
+              </div>
+          </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

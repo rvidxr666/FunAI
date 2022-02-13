@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+        .pop-up {
+            color: red;
+<!--            margin-left: 50px;-->
+         }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="http://localhost:5000/">Data Science App</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              {% block house_prices %}
+              <a class="nav-link" aria-current="page" href="http://localhost:5000/house-price">House-Prices</a>
+              {% endblock %}
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--              {% block thinking %}-->
+<!--              <a class="nav-link" href="#">Thinking</a>-->
+<!--              {% endblock %}-->
+<!--            </li>-->
+            <li class="nav-item">
+              {% block celebrity %}
+              <a class="nav-link" href="http://localhost:5000/celebrity">Identify the Celebrity</a>
+              {% endblock %}
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://localhost:5000/logout">Logout</a>
+            </li>
+<!--            <li class="nav-item dropdown">-->
+<!--              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--                Shit-->
+<!--              </a>-->
+<!--              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">-->
+<!--                <li><a class="dropdown-item" href="#">Action</a></li>-->
+<!--                <li><a class="dropdown-item" href="#">Another action</a></li>-->
+<!--                <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+<!--              </ul>-->
+<!--            </li>-->
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <script src="{{ url_for('static',filename='active.js') }}"></script>
+    {% block content %}
+    <div class="container py-4">
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">About</h1>
+        <p class="col-md-8 fs-4">The Flask framework was used to build this web app. This application has several features such as predicting real estate prices and identifying famous people.
+
+            </p>
+      </div>
+    </div>
+
+    <div class="row align-items-md-stretch">
+      <div class="col-md-6">
+        <div class="h-100 p-5 text-white bg-dark rounded-3">
+          <h2>Identify the Celebrity</h2>
+          <p>Identity determination. You are asked to upload a photo of a famous person and a specially trained model will tell you who was in the picture (outputs the name and surname of the famous person).</p>
+          <a href="http://localhost:5000/celebrity" class="btn btn-outline-light" type="button">Start</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="h-100 p-5 bg-light border rounded-3">
+          <h2>House-Prices</h2>
+          <p>Predicting real estate prices. Web App uses our pre-trained model to predict the price of a house based on certain parameters.</p>
+          <a href="http://localhost:5000/house-price" class="btn btn-outline-secondary" type="button">Start</a>
+        </div>
+      </div>
+    </div>
+
+    <footer class="pt-3 mt-4 text-muted border-top">
+      © 2021
+    </footer>
+  </div>
+    {% endblock %}
+</body>
+</html>

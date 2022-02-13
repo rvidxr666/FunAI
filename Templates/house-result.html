@@ -1,0 +1,26 @@
+{% extends "main.html" %}
+
+{% block house_prices %}
+<a class="nav-link active" aria-current="page" href="http://localhost:5000/house-price">House-Prices</a>
+{% endblock %}
+
+{% block thinking %}
+<a class="nav-link" href="#">Thinking</a>
+{% endblock %}
+
+{% block celebrity %}
+<a class="nav-link" href="http://localhost:5000/celebrity">Identify the Celebrity</a>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row justify-content-center mt-2">
+        <div class="col-12 col-sm-6 col-md-3">
+          <h3 class="text-center">{{ result }}</h3>
+          <div class="d-grid gap-2">
+            <a href = "http://localhost:5000/house-price" class="btn btn-secondary" type="button">Back</a>
+          </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
