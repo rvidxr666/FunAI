@@ -1,2 +1,2 @@
 # FunAI
-Simple Flask Web Application for Deployment of the AI Models
+Flask Web Application for Deployment of the AI Models
